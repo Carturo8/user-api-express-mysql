@@ -9,7 +9,7 @@ export const getUsers = (req, res) => {
 
 export const addUser = (req, res) => {
     const { nombre, email, rol, nivel } = req.body;
-    db.query('INSERT INTO usuarios (nombre, email, rol, nivel) VALUES (?, ?)', [nombre, email, rol, nivel], (err) => {
+    db.query('INSERT INTO usuarios (nombre, email, rol, nivel) VALUES (?, ?, ?, ?)', [nombre, email, rol, nivel], (err) => {
         if (err) return res.status(500).json(err);
         res.json({ message: 'User added successfully' });
     });
